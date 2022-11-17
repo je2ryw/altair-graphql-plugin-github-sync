@@ -14144,17 +14144,15 @@ class StorageService extends Dexie$1 {
 }
 class AltairGistSync extends PluginBase_1 {
   initialize(ctx) {
-    ctx.events.on("app-ready", () => {
-      ctx.db = new StorageService();
-      const div = document.createElement("div");
-      div.id = "app";
-      createApp(App, {
-        context: ctx
-      }).mount(div);
-      ctx.app.createPanel(div, {
-        location: panel.AltairPanelLocation.SIDEBAR,
-        title: "Gist sync"
-      });
+    ctx.db = new StorageService();
+    const div = document.createElement("div");
+    div.id = "app";
+    createApp(App, {
+      context: ctx
+    }).mount(div);
+    ctx.app.createPanel(div, {
+      location: panel.AltairPanelLocation.SIDEBAR,
+      title: "Gist sync"
     });
   }
   destroy() {

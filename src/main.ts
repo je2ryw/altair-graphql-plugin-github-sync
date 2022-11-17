@@ -12,19 +12,19 @@ if (import.meta.env.MODE === 'development') {
 // https://altair.sirmuel.design/docs/plugins/writing-plugin.html
 class AltairGistSync extends PluginBase {
   initialize(ctx: AltairContext) {
-    ctx.events.on('app-ready', () => {
-      ctx.db = new StorageService();
-      const div = document.createElement('div');
-      div.id = 'app';
-      createApp(App, {
-        context: ctx,
-      }).mount(div);
+    // ctx.events.on('app-ready', () => {
+    ctx.db = new StorageService();
+    const div = document.createElement('div');
+    div.id = 'app';
+    createApp(App, {
+      context: ctx,
+    }).mount(div);
 
-      ctx.app.createPanel(div, {
-        location: AltairPanelLocation.SIDEBAR,
-        title: 'Gist sync',
-      });
+    ctx.app.createPanel(div, {
+      location: AltairPanelLocation.SIDEBAR,
+      title: 'Gist sync',
     });
+    // });
   }
 
   destroy() {
